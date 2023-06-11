@@ -73,20 +73,20 @@ class ShopController extends Controller
         // News Modelからデータを取得する
         $shop = Shop::find($request->id);
         // 送信されてきたフォームデータを格納する
-        $$shop_form = $request->all();
+        $shop_form = $request->all();
         
         if ($request->remove == 'true') {
-            $$shop_form['image_path'] = null;
+            $shop_form['image_path'] = null;
         } elseif ($request->file('image')) {
             $path = $request->file('image')->store('public/image');
-            $$shop_form['image_path'] = basename($path);
+            $shop_form['image_path'] = basename($path);
         } else {
-            $$shop_form['image_path'] = $shop->image_path;
+            $shop_form['image_path'] = $shop->image_path;
         }
 
-        unset($$shop_form['image']);
-        unset($$shop_form['remove']);
-        unset($$shop_form['_token']);
+        unset($shop_form['image']);
+        unset($shop_form['remove']);
+        unset($shop_form['_token']);
 
 
         // 該当するデータを上書きして保存する

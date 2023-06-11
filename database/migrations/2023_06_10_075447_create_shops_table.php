@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('image_path')->nullable();  // 画像のパスを保存するカラム
             $table->string('shop_url'); // ニュースのURLを保存するカラム
             $table->string('description');  // ニュースの本文を保存するカラム
-
             $table->timestamps();
         });
     }

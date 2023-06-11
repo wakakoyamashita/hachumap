@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\Admin\ShopController;
-Route::controller(ShopController::class)->prefix('admin')->name('admin.')->group(function() {
+Route::controller(ShopController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('shop/create', 'add')->name('shop.add');
     Route::post('shop/create', 'create')->name('shop.create');
     Route::get('shop', 'index')->name('shop.index');
