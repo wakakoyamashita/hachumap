@@ -1,12 +1,13 @@
 @extends('layouts.admin')
-@section('title', 'ショップ情報作成')
+@section('title', 'イベント情報作成')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>ショップ情報作成</h2>
-                <form action="{{ route('admin.shop.create') }}" method="post" enctype="multipart/form-data">
+                <h2>イベント情報作成</h2>
+                <form action="{{ route('admin.event.create') }}" method="post" enctype="multipart/form-data">
+
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -15,27 +16,21 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">ショップ名</label>
+                        <label class="col-md-2">イベント名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="shop_name" value="{{ old('shop_name') }}">
+                            <input type="text" class="form-control" name="event_name" value="{{ old('event_name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">画像</label>
+                        <label class="col-md-2">会場／時間</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="text" class="form-control" name="place" value="{{ old('place') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">ショップURL</label>
+                        <label class="col-md-2">関連url</label>
                         <div class="col-md-10">
                             <input type="url" class="form-control" name="shop_url" value="{{ old('shop_url') }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2">ショップ説明</label>
-                        <div class="col-md-10">
-                            <textarea class="form-control" name="description" rows="20">{{ old('description') }}</textarea>
                         </div>
                     </div>
                     @csrf

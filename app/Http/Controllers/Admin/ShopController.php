@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 use App\Models\Shop;
 
+use App\Models\History;
+
+use Carbon\Carbon;
+
 class ShopController extends Controller
 {
     public function add()
@@ -16,9 +20,7 @@ class ShopController extends Controller
     
     public function create(Request $request)
     {
-        return redirect('admin/shop/create');
-    
-    $this->validate($request, Shop::$rules);
+        $this->validate($request, Shop::$rules);
 
         $shop = new Shop;
         $form = $request->all();
@@ -40,7 +42,7 @@ class ShopController extends Controller
         $shop->fill($form);
         $shop->save();
 
-        return redirect('admin/shop/create');
+        return redirect('admin/shop');
     }
     
     public function index(Request $request)
@@ -91,11 +93,16 @@ class ShopController extends Controller
 
         // 該当するデータを上書きして保存する
         $shop->fill($shop_form)->save();
+        
+        $history = new History();
+        $history->shop_id = $shop->id;
+        $history->edited_at = Carbon::now();
+        $history->save();
 
         return redirect('admin/shop');
     }
  
- public function delete(Request $request)
+    public function delete(Request $request)
     {
         // 該当するNews Modelを取得
         $shop = Shop::find($request->id);

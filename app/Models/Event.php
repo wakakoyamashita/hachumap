@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Shop extends Model
+class Event extends Model
 {
     use HasFactory;
     
     protected $guarded = array('id');
 
     public static $rules = array(
-        'shop_name' => 'required',
-        'description' => 'required',
+        'event_name' => 'required',
+        'place' => 'required',
     );
     
-    public function histories()
+    public function p_histories()
     {
-        return $this->hasMany('App\Models\History');
+        return $this->hasMany('App\Models\P_History');
     }
 }

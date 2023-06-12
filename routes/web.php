@@ -27,6 +27,16 @@ Route::controller(ShopController::class)->prefix('admin')->name('admin.')->middl
     Route::get('shop/delete', 'delete')->name('shop.delete');
 });
 
+use App\Http\Controllers\Admin\EventController;
+Route::controller(EventController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('event/create', 'add')->name('event.add');
+    Route::post('event/create', 'create')->name('event.create');
+    Route::get('event', 'index')->name('event.index');
+    Route::get('event/edit', 'edit')->name('event.edit');
+    Route::post('event/edit', 'update')->name('event.update');
+    Route::get('event/delete', 'delete')->name('event.delete');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
