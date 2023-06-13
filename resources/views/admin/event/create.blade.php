@@ -30,7 +30,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">関連url</label>
                         <div class="col-md-10">
-                            <input type="url" class="form-control" name="shop_url" value="{{ old('shop_url') }}">
+                            <input type="url" class="form-control" name="event_url" value="{{ old('event_url') }}">
                         </div>
                     </div>
                     @csrf

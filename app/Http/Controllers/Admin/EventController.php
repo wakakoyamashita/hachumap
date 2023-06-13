@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 use App\Models\Event;
 
+use App\Models\EventHistory;
+
+use Carbon\Carbon;
+
 class EventController extends Controller
 {
     public function add()
