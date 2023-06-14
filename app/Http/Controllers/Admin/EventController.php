@@ -73,6 +73,11 @@ class EventController extends Controller
 
         // 該当するデータを上書きして保存する
         $event->fill($event_form)->save();
+ 
+        $history = new EventHistory();
+        $history->event_id = $event->id;
+        $history->edited_at = Carbon::now();
+        $history->save();
 
         return redirect('admin/event');
     }

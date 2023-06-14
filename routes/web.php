@@ -41,7 +41,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+use App\Http\Controllers\IndexController;
+Route::get('/shop', [IndexController::class, 'shopindex'])->name('shop.index');
+Route::get('/event', [IndexController::class, 'eventindex'])->name('event.index');
+Route::get('/', [IndexController::class, 'index'])->name('index');

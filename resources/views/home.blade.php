@@ -16,6 +16,8 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                <a href="{{ route('admin.shop.index') }}">ショップ情報編集</a>
+                <a href="{{ route('admin.event.index') }}">イベント情報編集</a>
             </div>
         </div>
     </div>

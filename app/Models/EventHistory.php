@@ -15,4 +15,5 @@ class EventHistory extends Model
         'event_id' => 'required',
         'edited_at' => 'required',
     );
+    protected $table = 'events_histories';
 }

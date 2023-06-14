@@ -31,9 +31,10 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="20%">イベント名</th>
-                                <th width="50%">会場/開催時間</th>
+                                <th width="5%">ID</th>
+                                <th width="15%">イベント名</th>
+                                <th width="40%">開催日時/会場</th>
+                                <th width="40%">関連URL</th>
                                 <th width="10%">操作</th>
                             </tr>
                         </thead>
@@ -43,6 +44,7 @@
                                     <th>{{ $event->id }}</th>
                                     <td>{{ Str::limit($event->event_name, 100) }}</td>
                                     <td>{{ Str::limit($event->place, 250) }}</td>
+                                    <td>{{ Str::limit($event->event_url, 250) }}</td>
                                     <td>
                                         <div>
                                             <a href="{{ route('admin.event.edit', ['id' => $event->id]) }}">編集</a>

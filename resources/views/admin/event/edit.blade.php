@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="place">会場/開催時間</label>
+                        <label class="col-md-2" for="place">開催日時/会場</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="place" value="{{ $event_form->place }}">
                         </div>

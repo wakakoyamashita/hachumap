@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">会場／時間</label>
+                        <label class="col-md-2">開催日時/会場</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="place" value="{{ old('place') }}">
                         </div>

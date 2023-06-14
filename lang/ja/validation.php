@@ -168,7 +168,10 @@ return [
     'attributes' => [
         'shop_name' => 'ショップ名',
         'shop_url' => 'ショップURL',
-        'description' => '本文'
+        'description' => 'ショップ',
+        'event_name' => 'イベント名',
+        'event_url' => '関連URL',
+        'place' => '開催日時/会場',
     ],
 
 ];
